@@ -14,7 +14,7 @@ export async function POST(request: Request) {
         .insert([{
           ...data,
           status: 'new'
-        }])
+        } as any])
         .select()
         .single();
         

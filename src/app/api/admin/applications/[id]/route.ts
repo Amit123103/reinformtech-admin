@@ -9,7 +9,7 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     
     const { data, error } = await supabaseAdmin
       .from('job_applications')
-      .update({ status })
+      .update({ status } as any)
       .eq('id', id)
       .select()
       .single();

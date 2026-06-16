@@ -42,7 +42,7 @@ export async function PATCH(
 
     const { error } = await supabaseAdmin
       .from('testimonials')
-      .update(updates)
+      .update(updates as any)
       .eq('id', id);
 
     if (error) {

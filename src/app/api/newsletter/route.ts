@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     try {
       const { error: dbError } = await supabaseAdmin
         .from('subscribers')
-        .insert([{ email, status: 'active' }]);
+        .insert([{ email, status: 'active' } as any]);
         
       if (dbError) {
         // If the table doesn't exist yet, we will just log it for now

@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
     const { data, error } = await supabaseAdmin
       .from('job_roles')
-      .insert([{ title, department, type, location }])
+      .insert([{ title, department, type, location } as any])
       .select()
       .single();
 

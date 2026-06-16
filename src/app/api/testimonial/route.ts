@@ -10,8 +10,8 @@ export async function POST(request: Request) {
       .from('testimonials')
       .insert([{
         ...data,
-        approved: true // In a real app, you might want this false until moderated
-      }])
+        approved: true // Admin can insert pre-approved testimonials
+      } as any])
       .select()
       .single();
 
