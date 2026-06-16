@@ -30,7 +30,13 @@ export async function createClient() {
 }
 
 // This client bypasses Row Level Security (RLS). Never use it on the frontend!
-export const supabaseAdmin = createSupabaseClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
-  process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder'
-);
+export const supabaseAdmin = new Proxy({}, {
+  get(target, prop) {
+    const client = createSupabaseClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co',
+      process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder'
+    );
+    // @ts-ignore
+    return typeof client[prop] === 'function' ? client[prop].bind(client) : client[prop];
+  }
+}) as ReturnType<typeof createSupabaseClient>;
