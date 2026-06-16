@@ -3,6 +3,8 @@ import Link from "next/link";
 import { LayoutDashboard, Users, FileText, Settings, MessageSquare, Briefcase, Inbox } from "lucide-react";
 import { SignOutButton } from "@/components/ui/SignOutButton";
 
+export const dynamic = "force-dynamic";
+
 const navigation = [
   { name: "Submissions", href: "/", icon: LayoutDashboard },
   { name: "Subscribers", href: "/subscribers", icon: Users },
