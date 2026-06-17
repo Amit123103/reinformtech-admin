@@ -1,12 +1,13 @@
 import { ReactNode } from "react";
 import Link from "next/link";
-import { LayoutDashboard, Users, FileText, Settings, MessageSquare, Briefcase, Inbox } from "lucide-react";
+import { LayoutDashboard, Users, FileText, Settings, MessageSquare, Briefcase, Inbox, Building2 } from "lucide-react";
 import { SignOutButton } from "@/components/ui/SignOutButton";
 
 export const dynamic = "force-dynamic";
 
 const navigation = [
   { name: "Submissions", href: "/", icon: LayoutDashboard },
+  { name: "Clients", href: "/clients", icon: Building2 },
   { name: "Subscribers", href: "/subscribers", icon: Users },
   { name: "Testimonials", href: "/testimonials", icon: MessageSquare },
   { name: "Broadcast Email", href: "/broadcast", icon: FileText },
